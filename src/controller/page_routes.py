@@ -1,9 +1,9 @@
 from flask import *
-from src.model.api import *
+from src.model.busquedas_api import *
 
-routes = Blueprint('routes', __name__)
+page = Blueprint('page', __name__)
 
-@routes.route('/')
+@page.route('/')
 def index():
     
     datos = buscar_ip()
@@ -11,7 +11,7 @@ def index():
     
     return render_template('index.html', datos=datos, colas=colas)
 
-@routes.route('/prueba')
+@page.route('/prueba')
 def prueba():
     
     return render_template('prueba.html')
