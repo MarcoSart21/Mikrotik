@@ -1,6 +1,24 @@
 from src.model.conexion_api import *
 import ipaddress
 
+#solo busca las direcciones network
+def buscar_network():
+    # Conectar al dispositivo MikroTik
+    api= connect(username=username, password=password, host=router_ip)
+
+    # Obtener todas las direcciones IP configuradas
+    print("Listando todas las IPs agregadas en el dispositivo:")
+    ip_addresses = api.path('/ip/address').__call__('print')  # Llama al comando para listar IPs
+    
+    networks = []
+    for ip in ip_addresses:
+        ip_network = ipaddress.ip_network(ip['address'], strict=False)  # strict=False permite usar IPs sin máscara
+        networks.append(ip_network)  #Agregar solo la dirección de la red
+    
+    api.close()
+    
+    return networks
+
 def buscar_ip():
     # Conectar al dispositivo MikroTik
     api= connect(username=username, password=password, host=router_ip)
@@ -11,8 +29,7 @@ def buscar_ip():
     
     ips = []
     for ip in ip_addresses:
-        ip_network = ipaddress.ip_network(ip['address'], strict=False)  # strict=False permite usar IPs sin máscara
-        ips.append(ip_network)  #Agregar solo la dirección de la red
+        ips.append(ip['address'])  #Agregar solo la dirección de la red
     
     api.close()
     

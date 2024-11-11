@@ -1,6 +1,5 @@
 from src.model.conexion_api import *
 
-
 def agregar_usuario2(nombre,contrasena,permisos,Comentario):
     api = connect(username=username, password=password, host=router_ip)
     

@@ -6,10 +6,11 @@ page = Blueprint('page', __name__)
 @page.route('/')
 def index():
     
-    datos = buscar_ip()
+    networks = buscar_network()
     colas = obtener_colas()
+    ips = buscar_ip()
     
-    return render_template('index.html', datos=datos, colas=colas)
+    return render_template('index.html', ips=ips, networks=networks, colas=colas)
 
 @page.route('/prueba')
 def prueba():

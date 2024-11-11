@@ -1,78 +1,125 @@
-$("#agregar_ip").submit(function(event) {
+$("#agregar_ip").submit(function (event) {
     event.preventDefault();  // Evita que el formulario se envíe de manera tradicional
     $.ajax({
         type: "POST",
         url: "/agregar_ip",
         data: $(this).serialize(),
-        success: function(response) {
+        success: function (response) {
             alert(response.message);  // Muestra un mensaje de éxito
             // Opcionalmente, puedes limpiar el formulario o actualizar la interfaz
+            location.reload();
+
         },
-        error: function() {
+        error: function () {
             alert("Hubo un error al agregar la IP.");
         }
     });
 });
 
-$("#agregar-usuario").submit(function(event) {
+$("#editar_ip").submit(function (event) {
+    event.preventDefault();  // Evita que el formulario se envíe de manera tradicional
+    $.ajax({
+        type: "POST",
+        url: "/editar_ip",
+        data: $(this).serialize(),
+        success: function (response) {
+            alert(response.message);  // Muestra un mensaje de éxito
+            // Opcionalmente, puedes limpiar el formulario o actualizar la interfaz
+            location.reload();
+
+        },
+        error: function () {
+            alert("Hubo un error al editar la IP.");
+        }
+    });
+});
+
+$("#eliminar_ip").submit(function (event) {
+    event.preventDefault();  // Evita que el formulario se envíe de manera tradicional
+    $.ajax({
+        type: "POST",
+        url: "/eliminar_ip",
+        data: $(this).serialize(),
+        success: function (response) {
+            alert(response.message);  // Muestra un mensaje de éxito
+            // Opcionalmente, puedes limpiar el formulario o actualizar la interfaz
+            location.reload();
+
+        },
+        error: function () {
+            alert("Hubo un error al eliminar la IP.");
+        }
+    });
+});
+
+
+$("#agregar-usuario").submit(function (event) {
     event.preventDefault();  // Evita que el formulario se envíe de manera tradicional
     $.ajax({
         type: "POST",
         url: "/agregar_usuario",
         data: $(this).serialize(),
-        success: function(response) {
+        success: function (response) {
             alert(response.message);  // Muestra un mensaje de éxito
             // Opcionalmente, puedes limpiar el formulario o actualizar la interfaz
+            location.reload();
+
         },
-        error: function() {
+        error: function () {
             alert("Hubo un error al agregar el Usuario.");
         }
     });
 });
 
-$("#limitar-bh").submit(function(event) {
+$("#limitar-bh").submit(function (event) {
     event.preventDefault();  // Evita que el formulario se envíe de manera tradicional
     $.ajax({
         type: "POST",
         url: "/limitar_bh",
         data: $(this).serialize(),
-        success: function(response) {
+        success: function (response) {
             alert(response.message);  // Muestra un mensaje de éxito
             // Opcionalmente, puedes limpiar el formulario o actualizar la interfaz
+            location.reload();
+
         },
-        error: function() {
+        error: function () {
             alert("Hubo un error al limitar el ancho de banda.");
         }
     });
 });
 
-$("#editar-bh").submit(function(event) {
+$("#editar-bh").submit(function (event) {
     event.preventDefault();  // Evita que el formulario se envíe de manera tradicional
     $.ajax({
         type: "POST",
         url: "/editar_bh",
         data: $(this).serialize(),
-        success: function(response) {
+        success: function (response) {
             alert(response.message);  // Muestra un mensaje de éxito
             // Opcionalmente, puedes limpiar el formulario o actualizar la interfaz
+            location.reload();
+
         },
-        error: function() {
+        error: function () {
             alert("Hubo un error al editar el ancho de banda.");
         }
     });
 });
 
-$("#eliminar-bh").submit(function(event) {
+$("#eliminar-bh").submit(function (event) {
     event.preventDefault();  // Evita que el formulario se envíe de manera tradicional
     $.ajax({
         type: "POST",
         url: "/eliminar_bh",
         data: $(this).serialize(),
-        success: function(response) {
+        success: function (response) {
             alert(response.message);  // Muestra un mensaje de éxito
             // Opcionalmente, puedes limpiar el formulario o actualizar la interfaz
+            location.reload();
+
         },
-        error: function() {
+        error: function () {
             alert("Hubo un error al editar el ancho de banda.");
         }
     });
