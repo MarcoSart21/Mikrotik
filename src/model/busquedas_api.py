@@ -1,7 +1,6 @@
 from src.model.conexion_api import *
 import ipaddress
 
-#solo busca las direcciones network
 def buscar_network():
     # Conectar al dispositivo MikroTik
     api= connect(username=username, password=password, host=router_ip)

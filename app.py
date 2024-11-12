@@ -1,5 +1,4 @@
 from flask import *
-# from src.model.api import *
 from src.controller.page_routes import *
 from src.controller.ip_routes import *
 from src.controller.bh_routes import *
